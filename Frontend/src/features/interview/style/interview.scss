@@ -110,6 +110,20 @@ $severity-low: #3fb950;
     }
 }
 
+.logout-button {
+    background-color: transparent;
+    border: 1px solid $border-color;
+    color: $text-primary;
+    border-radius: 0.5rem;
+    font-family: $font-stack;
+
+    &:hover {
+        border-color: rgba($accent, 0.45);
+        color: $accent;
+        background-color: rgba($accent, 0.08);
+    }
+}
+
 // ── Center Content ────────────────────────────────────────────────────────────
 .interview-content {
     flex: 1;

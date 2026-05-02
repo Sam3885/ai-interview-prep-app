@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
 const tokenBlacklistModel = require("../models/blacklist.model")
+const mongoose = require("mongoose")
 
 
 
@@ -13,9 +14,9 @@ async function authUser(req, res, next) {
         })
     }
 
-    const isTokenBlacklisted = await tokenBlacklistModel.findOne({
-        token
-    })
+    const isTokenBlacklisted = mongoose.connection.readyState === 1
+        ? await tokenBlacklistModel.findOne({ token })
+        : null
 
     if (isTokenBlacklisted) {
         return res.status(401).json({
@@ -24,7 +25,7 @@ async function authUser(req, res, next) {
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || "dev-jwt-secret")
 
         req.user = decoded
 

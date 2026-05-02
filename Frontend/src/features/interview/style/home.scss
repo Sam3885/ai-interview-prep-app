@@ -318,6 +318,32 @@ $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
     &:active {
         transform: scale(0.98);
     }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+        transform: none;
+    }
+}
+
+.form-error {
+    margin: 0;
+    padding: 0.85rem 1.5rem;
+    border-top: 1px solid rgba($accent, 0.3);
+    background-color: rgba($accent, 0.08);
+    color: $accent-alt;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.form-status {
+    margin: 0;
+    padding: 0.85rem 1.5rem;
+    border-top: 1px solid $info-border;
+    background-color: rgba($info-border, 0.25);
+    color: #8ab4f8;
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
 .recent-reports{

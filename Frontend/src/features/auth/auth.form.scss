@@ -41,4 +41,19 @@ main{
         color: #e1034d;
         text-decoration: none;
     }
+
+    .auth-error {
+        margin: 0;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        background-color: rgba(225, 3, 77, 0.12);
+        color: #ff6b9d;
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+
+    button:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
 }

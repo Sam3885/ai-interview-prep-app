@@ -8,13 +8,20 @@ const Register = () => {
     const [ username, setUsername ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
+    const [ error, setError ] = useState("")
 
     const {loading,handleRegister} = useAuth()
     
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await handleRegister({username,email,password})
-        navigate("/")
+        setError("")
+
+        try {
+            await handleRegister({username,email,password})
+            navigate("/")
+        } catch (error) {
+            setError(error.response?.data?.message || "Unable to register. Please try again.")
+        }
     }
 
     if(loading){
@@ -25,6 +32,7 @@ const Register = () => {
         <main>
             <div className="form-container">
                 <h1>Register</h1>
+                {error && <p className='auth-error'>{error}</p>}
 
                 <form onSubmit={handleSubmit}>
 
@@ -47,7 +55,7 @@ const Register = () => {
                             type="password" id="password" name='password' placeholder='Enter password' />
                     </div>
 
-                    <button className='button primary-button' >Register</button>
+                    <button disabled={loading} className='button primary-button' >Register</button>
 
                 </form>
 

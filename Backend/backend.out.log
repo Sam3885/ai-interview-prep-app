@@ -1,0 +1,9 @@
+[dotenv@17.3.1] injecting env (2) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Server is running on port 3000
+Error: querySrv ENOTFOUND _mongodb._tcp.interview-ai-cluster.mjrur50.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.interview-ai-cluster.mjrur50.mongodb.net'
+}

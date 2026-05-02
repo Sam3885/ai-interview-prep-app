@@ -15,11 +15,10 @@ const envOrigins = (process.env.CLIENT_ORIGIN || "")
     .map((origin) => origin.trim())
     .filter(Boolean)
 
-const allowedOrigins = new Set([
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    ...envOrigins
-])
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://ai-interview-prep-app-1.onrender.com"
+];
 
 app.use(cors({
   origin: function (origin, callback) {
